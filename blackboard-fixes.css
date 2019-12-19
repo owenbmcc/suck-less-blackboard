@@ -1,0 +1,12 @@
+body, #contentPanel {
+	background: pink !important;
+}
+
+/** { padding: 0 !important; }*/
+
+table.gbtable tbody tr td, 
+table.gbtable tbody tr th, 
+table.gbtable_header th, 
+table.gbtable thead th {
+	padding: 0 !important;
+}

@@ -1,21 +1,26 @@
 {
-    "name": "Suck Less Blackboard",
-    "version": "1.0",
-    "description": "Make Blackboard suck (slightly) less!",
-    "manifest_version": 2,
-
-	"background": {
-      "scripts": ["background.js"],
-      "persistent": false
-    },
-     "page_action": {
-      "default_popup": "popup.html",
-       "default_icon": {
-        "16": "images/get_started16.png",
-        "32": "images/get_started32.png",
-        "48": "images/get_started48.png",
-        "128": "images/get_started128.png"
-      }
-    },
-	"permissions": ["activeTab", "declarativeContent", "storage"]
+	"name": "Suck Less Blackboard",
+	"version": "1.0",
+	"description": "Make Blackboard suck (slightly) less!",
+	"manifest_version": 2,
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"matches": ["*://bbhosted.cuny.edu/*"],
+			"js": ["background.js"],
+			"css" : ["blackboard-fixes.css"],
+			"run_at": "document_end"
+		}
+	],
+	"page_action": {
+	   "default_icon": {
+			"16": "images/get_started16.png",
+			"32": "images/get_started32.png",
+			"48": "images/get_started48.png",
+			"128": "images/get_started128.png"
+		}
+	},
+	"permissions": [
+		"tabs", "*://*/*", "activeTab"
+	]
 }
